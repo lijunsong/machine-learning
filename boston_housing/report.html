@@ -11779,7 +11779,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11800,7 +11800,7 @@ div#notebook {
     
 <span class="c1"># Success</span>
 <span class="k">print</span> <span class="s2">&quot;Boston housing dataset has {} data points with {} variables each.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="c1">#print data[(data[&#39;RM&#39;]&lt;=5) &amp; (data[&#39;LSTAT&#39;]&lt;33) &amp;(data[&#39;LSTAT&#39;]&gt;20)]</span>
+<span class="c1">#print data[(data[&#39;RM&#39;]&lt;=6)&amp;(data[&#39;LSTAT&#39;]&gt;15)&amp;(data[&#39;PTRATIO&#39;]&lt;16)]</span>
 </pre></div>
 
 </div>
@@ -11852,23 +11852,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Minimum price of the data</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
-<span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="c1"># Maximum price of the data</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
-<span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># Mean price of the data</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
-<span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="c1"># Median price of the data</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
-<span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="c1"># Standard deviation of prices of the data</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11965,17 +11965,17 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;r2_score&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import &#39;r2_score&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 
 <span class="k">def</span> <span class="nf">performance_metric</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Calculates and returns the performance score between </span>
 <span class="sd">        true and predicted values based on the metric chosen. &quot;&quot;&quot;</span>
     
-    <span class="c1"># TODO: Calculate the performance score between &#39;y_true&#39; and &#39;y_predict&#39;</span>
+    <span class="c1"># Calculate the performance score between &#39;y_true&#39; and &#39;y_predict&#39;</span>
     <span class="n">score</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)</span>
     
     <span class="c1"># Return the score</span>
@@ -12030,7 +12030,7 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Calculate the performance of this model</span>
@@ -12088,13 +12088,13 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;train_test_split&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import &#39;train_test_split&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
-<span class="c1"># TODO: Shuffle and split the data into training and testing subsets</span>
+<span class="c1"># Shuffle and split the data into training and testing subsets</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span>  <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Success</span>
@@ -14611,7 +14611,7 @@ LlTSqrcAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> grid search technique lets developers define a grid of parameter combinations to try. It can help optimize a learning algorithm by systematically exploring and tuning parameters.</p>
+<p><strong>Answer: </strong> Grid Search technique lets one define a grid of parameter combinations and exhaustively explores all possible parameter values automatically; It frees us from guess-and-check method of tuning learning algorithms.  Because the search is exhaustive, the best parameter combination is guarenteed to be searched (as long as the best one is covered in the given combinations).  Thus to optimize a learning algorithm, define a range of parameter values to try and let grid search technique to select the optimal one.</p>
 
 </div>
 </div>
@@ -14632,7 +14632,8 @@ LlTSqrcAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> K-fold cross validation will divide the  data set into  K subset and  train the algorithm K times with different subset as its training and testing data. This can prevent overfitting in grid search.</p>
+<p><strong>Answer: </strong> K-fold cross validation will divide the data set into K subsets and train the algorithm K times, each trained with one different subset as testing data and the other K-1 subsets together as training data. Finally the average error is calculated across all K runs.</p>
+<p>Since grid search is exhaustive, it tends to overfit the data if no testing set is not used. K-fold cross validation provides K different testing sets for grid search, and thus k-fold cross validation helps prevent overfitting in grid search.</p>
 
 </div>
 </div>
@@ -14668,10 +14669,10 @@ LlTSqrcAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39;, and &#39;GridSearchCV&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39;, and &#39;GridSearchCV&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
 <span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
@@ -14683,16 +14684,16 @@ LlTSqrcAAAAASUVORK5CYII=
     <span class="c1"># Create cross-validation sets from the training data</span>
     <span class="n">cv_sets</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_iter</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
-    <span class="c1"># TODO: Create a decision tree regressor object</span>
+    <span class="c1"># Create a decision tree regressor object</span>
     <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
 
-    <span class="c1"># TODO: Create a dictionary for the parameter &#39;max_depth&#39; with a range from 1 to 10</span>
+    <span class="c1"># Create a dictionary for the parameter &#39;max_depth&#39; with a range from 1 to 10</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span> <span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="p">}</span>
 
-    <span class="c1"># TODO: Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
+    <span class="c1"># Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
     <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
 
-    <span class="c1"># TODO: Create the grid search object</span>
+    <span class="c1"># Create the grid search object</span>
     <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring_fnc</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv_sets</span><span class="p">)</span>
 
     <span class="c1"># Fit the grid search object to the data to compute the optimal model</span>
@@ -14730,7 +14731,7 @@ LlTSqrcAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Fit the training data to the model using grid search</span>
@@ -14813,7 +14814,7 @@ LlTSqrcAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Produce a matrix for client data</span>
@@ -14858,17 +14859,11 @@ Predicted selling price for Client 3&#39;s home: $942,666.67
 <li>Predicted selling price for Client 2's home: <code>$189,123.53</code></li>
 <li>Predicted selling price for Client 3's home: <code>$942,666.67</code></li>
 </ul>
-<p>Prices seem reasonable given the known data. Take Client 2 as an example.  Here are the known prices for houses with 4 rooms and a high student-teacher ratio:</p>
-
-<pre><code>        RM  LSTAT  PTRATIO      MEDV
-144  4.903  29.29     14.7  247800.0
-147  4.926  29.53     14.7  306600.0
-367  4.368  30.63     20.2  184800.0
-369  4.652  28.28     20.2  220500.0
-370  5.000  31.99     20.2  155400.0
-371  4.880  30.62     20.2  214200.0
-389  4.138  23.34     20.2  249900.0</code></pre>
-<p>I would thus think predicting prices around <code>$200,000.00</code> makes sense. Client1 and Client3 follow the same analysis.</p>
+<p>The selling price makes sense:</p>
+<ol>
+<li>from the perspective of the house size, the money they spend on the house correlates with the size of houses, i.e. prices for 4 rooms is less then that of 5 rooms, and that of 8 rooms. Less money for small house; more money for large house. Seems reasonable.</li>
+<li>from the perspective of other two factors, client 3 would live in a neighborhood with great school and with few poor people, her house is supposed to cost the most. Client 1 spend less money than client 3 as her requirement is less demanding than client 3. Client 2 has a less demanding requirement than client 1, and thus client 2 would spend least amount of money among the three clients.</li>
+</ol>
 
 </div>
 </div>
@@ -14885,7 +14880,7 @@ Predicted selling price for Client 3&#39;s home: $942,666.67
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">vs</span><span class="o">.</span><span class="n">PredictTrials</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">fit_model</span><span class="p">,</span> <span class="n">client_data</span><span class="p">)</span>
@@ -14902,17 +14897,17 @@ Predicted selling price for Client 3&#39;s home: $942,666.67
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Trial 1: $391,183.33
-Trial 2: $419,700.00
+Trial 2: $424,935.00
 Trial 3: $415,800.00
 Trial 4: $420,622.22
-Trial 5: $418,377.27
+Trial 5: $413,334.78
 Trial 6: $411,931.58
 Trial 7: $399,663.16
 Trial 8: $407,232.00
 Trial 9: $351,577.61
 Trial 10: $413,700.00
 
-Range in prices: $69,044.61
+Range in prices: $73,357.39
 </pre>
 </div>
 </div>
